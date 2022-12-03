@@ -1,4 +1,5 @@
 if [[ -n "$(git status --porcelain)" ]]; then
-    git commit -a -m '[PHPQC] Code quality changes [skip ci]'
+    git add .
+    git commit -m '[PHPQC] Code quality changes [skip ci]'
     git push origin HEAD
 fi
