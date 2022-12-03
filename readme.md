@@ -26,8 +26,23 @@ pull our pre-built image. You can do this by running the following command:
 $ docker pull ghcr.io/rschoonheim/phpqc:release
 ```
 
-### CircleCI
-The following example shows how to use PHP Quality Container in CircleCI. It will run
+### Adding extensions to the image
+Sometimes you want to add additional extensions to the image. You can do this by creating a new Dockerfile
+and extending this image.
+
+**Example**
+```dockerfile
+FROM ghcr.io/rschoonheim/phpqc:release
+
+# Install additional extensions
+
+
+# Install additional tools
+
+```
+
+## Using phpqc with CircleCI
+The following example shows how to use phpqc in CircleCI. It will run
 rector to perform refactorings and fix code styling. After each step
 it will commit the changes to the repository.
 
@@ -73,6 +88,7 @@ workflows:
             branches:
               ignore: master
 ```
+
 
 ## Commands Available
 
