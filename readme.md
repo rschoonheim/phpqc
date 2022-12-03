@@ -3,6 +3,8 @@ PHP Quality Container is a set of tools to help you to improve your code quality
 powerful tools available in the PHP ecosystem. PHP Quality Container comes with the following 
 tools:
 
+* Refactoring
+  * Rector
 * Testing
   * phpunit
   * phpunit speed trap
@@ -27,3 +29,16 @@ To use PHP Quality Container in CircleCI, you can use the following configuratio
 ```yaml
 
 ```
+
+## Commands Available
+
+### Git
+| Command    | Description                             |
+|------------|-----------------------------------------|
+| `git-push` | Commit & push changes to the repository |
+
+
+
+
+
+

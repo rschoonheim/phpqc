@@ -9,8 +9,13 @@ RUN php composer-setup.php
 RUN php -r "unlink('composer-setup.php');"
 RUN mv composer.phar /usr/local/bin/composer
 
-# Install GIT
+# Install GIT and SSH
 RUN apk add --no-cache git
+RUN apk add --no-cache openssh
+
+# Install intl php extension
+RUN apk add --no-cache icu-dev
+RUN docker-php-ext-install intl
 
 # Create user and group & switch context
 # to run this container as non-root.
@@ -18,15 +23,34 @@ RUN apk add --no-cache git
 RUN addgroup -g 1000 -S qualityContainer && \
     adduser -u 1000 -S qualityContainer -G qualityContainer
 USER qualityContainer
-WORKDIR /home/qualityContainer
+WORKDIR /home/qualityContainer/app
+
+RUN mkdir $HOME/scripts
 
 # Adding the composer bin directory to the PATH
 #
 ENV PATH="/home/qualityContainer/.composer/vendor/bin:${PATH}"
+ENV PATH="${PATH}:/home/qualityContainer/scripts"
+
+COPY scripts /home/qualityContainer/scripts
+
+# Configure GIT for the user.
+#
+RUN git config --global user.email "phpqc@romanoschoonheim.nl" && \
+    git config --global user.name "PHP Quality Container" && \
+    git config --global --add safe.directory /home/qualityContainer/app
+
+# Create alias for git commit
+# when there are changes
+#
+RUN echo "alias git-push=$HOME/scripts/git-commit.sh" >> ~/.bashrc
 
 # PHP Analysis Tools
 #
 RUN composer global require phpmd/phpmd
+
+# Refactoring Tools
+RUN composer global require rector/rector
 
 # PHP Testing Tools
 #
@@ -40,6 +64,3 @@ RUN composer global require laravel/pint
 
 # Larastan - repository: https://github.com/nunomaduro/larastan
 RUN composer global require nunomaduro/larastan
-
-
-
