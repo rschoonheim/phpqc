@@ -65,3 +65,8 @@ RUN composer global require laravel/pint
 
 # Larastan - repository: https://github.com/nunomaduro/larastan
 RUN composer global require nunomaduro/larastan
+
+
+# Pre-install frameworks
+RUN composer global require laravel/laravel
+
