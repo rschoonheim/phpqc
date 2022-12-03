@@ -1,0 +1,17 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the docker image
+      run: docker build -f Dockerfile -t ghcr.io/rschoonheim/phpqc .
+    - name: Push the image
+      run: docker push ghcr.io/rschoonheim/phpqc:latest
