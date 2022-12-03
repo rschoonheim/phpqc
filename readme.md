@@ -1,4 +1,7 @@
 # PHP Quality Container
+
+[![Build](https://github.com/rschoonheim/phpqc/actions/workflows/docker-image.yml/badge.svg)](https://github.com/rschoonheim/phpqc/actions/workflows/docker-image.yml)
+
 PHP Quality Container is a set of tools to help you to improve your code quality using
 powerful tools available in the PHP ecosystem. PHP Quality Container comes with the following 
 tools:
