@@ -24,10 +24,51 @@ $ docker pull ghcr.io/rschoonheim/phpqc:latest
 ```
 
 ### CircleCI
-To use PHP Quality Container in CircleCI, you can use the following configuration:
+The following example shows how to use PHP Quality Container in CircleCI. It will run
+rector to perform refactorings and fix code styling. After each step
+it will commit the changes to the repository.
 
 ```yaml
+version: 2.1
 
+executors:
+  phpqc:
+    docker:
+      - image: ghcr.io/rschoonheim/phpqc:latest
+
+jobs:
+  rector-php:
+    executor: phpqc
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "NO:PE:SE:CR:ET:KE:Y"
+      - checkout
+      - run: "rector"
+      - run: "git-commit"
+  code-style:
+    executor: phpqc
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "NO:PE:SE:CR:ET:KE:Y"
+      - checkout
+      - run: "pint"
+      - run: "git-commit"
+
+workflows:
+  development:
+    jobs:
+      - rector-php:
+          filters:
+            branches:
+              ignore: master
+      - code-style:
+          requires:
+            - rector-php
+          filters:
+            branches:
+              ignore: master
 ```
 
 ## Commands Available
