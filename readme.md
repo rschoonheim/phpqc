@@ -2,12 +2,10 @@
 
 [![Release](https://github.com/rschoonheim/phpqc/actions/workflows/docker-image.yml/badge.svg)](https://github.com/rschoonheim/phpqc/actions/workflows/docker-image.yml)
 
-Quality container is a docker image that contains a set of tools to help you improve the quality of your PHP project. It is easy
-to configure making it easy to integrate into your project.
+Quality container is a docker image that contains a set of tools to help you improve the quality of your PHP project.
+It is easy to configure making it easy to integrate into your project.
 
-To keep the image small and fast, the image is based on Alpine Linux. And 
-has the following tools installed:
-
+It comes with the following tools:
 * Refactoring
   * Rector
 * Testing
