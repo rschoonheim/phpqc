@@ -24,7 +24,7 @@ To start using PHP Quality Container, you need to
 pull our pre-built image. You can do this by running the following command:
 
 ```bash
-$ docker pull ghcr.io/rschoonheim/phpqc:latest
+$ docker pull ghcr.io/rschoonheim/phpqc:release
 ```
 
 ### CircleCI
