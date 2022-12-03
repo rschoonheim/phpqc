@@ -77,9 +77,9 @@ workflows:
 ## Commands Available
 
 ### Git
-| Command    | Description                             |
-|------------|-----------------------------------------|
-| `git-push` | Commit & push changes to the repository |
+| Command      | Description                             |
+|--------------|-----------------------------------------|
+| `git-commit` | Commit & push changes to the repository |
 
 
 
