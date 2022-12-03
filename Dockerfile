@@ -13,9 +13,10 @@ RUN mv composer.phar /usr/local/bin/composer
 RUN apk add --no-cache git
 RUN apk add --no-cache openssh
 
-# Install intl php extension
+# Install php extensions
 RUN apk add --no-cache icu-dev
 RUN docker-php-ext-install intl
+RUN docker-php-ext-install exif
 
 # Create user and group & switch context
 # to run this container as non-root.

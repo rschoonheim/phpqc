@@ -2,29 +2,28 @@
 
 [![Release](https://github.com/rschoonheim/phpqc/actions/workflows/docker-image.yml/badge.svg)](https://github.com/rschoonheim/phpqc/actions/workflows/docker-image.yml)
 
+Quality container is a docker image that contains a set of tools to help you improve the quality of your PHP project.
+It is easy to configure making it easy to integrate into your project.
 
-PHP Quality Container is a set of tools to help you to improve your code quality using
-powerful tools available in the PHP ecosystem. PHP Quality Container comes with the following 
-tools:
-
+It comes with the following tools:
 * Refactoring
   * Rector
 * Testing
   * phpunit
-  * phpunit speed trap
+  * phpunit speedtrap
 * Static Analysis
   * phpmd
   * phpstan
 * Laravel
   * [Laravel Pint](https://laravel.com/docs/9.x/pint)
   * [Larastan](https://github.com/nunomaduro/larastan)
-
+ 
 ## Getting Started
 To start using PHP Quality Container, you need to 
 pull our pre-built image. You can do this by running the following command:
 
 ```bash
-$ docker pull ghcr.io/rschoonheim/phpqc:latest
+$ docker pull ghcr.io/rschoonheim/phpqc:release
 ```
 
 ### CircleCI
@@ -78,9 +77,9 @@ workflows:
 ## Commands Available
 
 ### Git
-| Command    | Description                             |
-|------------|-----------------------------------------|
-| `git-push` | Commit & push changes to the repository |
+| Command      | Description                             |
+|--------------|-----------------------------------------|
+| `git-commit` | Commit & push changes to the repository |
 
 
 
