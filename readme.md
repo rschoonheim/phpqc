@@ -38,7 +38,7 @@ version: 2.1
 executors:
   phpqc:
     docker:
-      - image: ghcr.io/rschoonheim/phpqc:latest
+      - image: ghcr.io/rschoonheim/phpqc:release
 
 jobs:
   rector-php:
