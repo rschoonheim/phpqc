@@ -72,7 +72,7 @@ jobs:
             - "NO:PE:SE:CR:ET:KE:Y"
       - checkout
       - run: "pint"
-      - run: "git-commit"
+      - run: "phpqc git:commit --message='Apply code style fixes' --push=true"
 
 workflows:
   development:
@@ -93,14 +93,15 @@ workflows:
 ## Commands Available
 
 ### Git
-| Command      | Description                             |
-|--------------|-----------------------------------------|
-| `git-commit` | Commit & push changes to the repository |
+| Command      | Description        |
+|--------------|--------------------|
+| `git:commit` | Commit all changes |
+| `git:push`   | Push all changes   |
 
 ### Bitbucket
 | Command  | Description                                 |
 |----------|---------------------------------------------|
-| `phpqc bitbucket:pull-request:create` | Create pull request at bitbucket            |
+| `bitbucket:pull-request:create` | Create pull request at bitbucket            |
 
 
 
