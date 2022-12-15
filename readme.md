@@ -97,6 +97,11 @@ workflows:
 |--------------|-----------------------------------------|
 | `git-commit` | Commit & push changes to the repository |
 
+### Bitbucket
+| Command  | Description                                 |
+|----------|---------------------------------------------|
+| `phpqc bitbucket:pull-request:create` | Create pull request at bitbucket            |
+
 
 
 

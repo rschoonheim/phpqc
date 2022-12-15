@@ -66,7 +66,10 @@ RUN composer global require laravel/pint
 # Larastan - repository: https://github.com/nunomaduro/larastan
 RUN composer global require nunomaduro/larastan
 
-
 # Pre-install frameworks
 RUN composer global require laravel/laravel
 
+# Make binary of app
+COPY --chown=qualityContainer:qualityContainer phpqc /home/qualityContainer/scripts
+
+RUN echo "alias git-push=$HOME/scripts/phpqc" >> ~/.bashrc
