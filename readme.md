@@ -72,7 +72,7 @@ jobs:
             - "NO:PE:SE:CR:ET:KE:Y"
       - checkout
       - run: "pint"
-      - run: "git:commit --message='Apply code style fixes' --push=true"
+      - run: "phpqc git:commit --message='Apply code style fixes' --push=true"
 
 workflows:
   development:
