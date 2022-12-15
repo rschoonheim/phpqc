@@ -1,6 +1,5 @@
 FROM php:8.0-cli-alpine
 
-MAINTAINER Romano Schoonheim <romano@romanoschoonheim.nl>
 
 # Install Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
